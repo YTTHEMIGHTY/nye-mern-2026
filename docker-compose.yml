@@ -1,0 +1,15 @@
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+
+  client:
+    build: ./client
+    ports:
+      - "8080:80"  # We map localhost:8080 to container:80
+    depends_on:
+      - server
